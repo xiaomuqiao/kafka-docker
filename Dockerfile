@@ -1,8 +1,8 @@
-FROM anapsix/alpine-java
+FROM ppc64le/java:openjdk-7-jre
 
-MAINTAINER Wurstmeister 
+MAINTAINER Wurstmeister
 
-RUN apk add --update unzip wget curl docker jq coreutils
+RUN apt-get update && apt-get install -y unzip wget curl docker jq coreutils net-tools
 
 ENV KAFKA_VERSION="0.10.0.0" SCALA_VERSION="2.11"
 ADD download-kafka.sh /tmp/download-kafka.sh
